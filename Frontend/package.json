@@ -9,7 +9,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/react": "^18.2.53",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-router-dom": "^5.3.3",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.12"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   }
 }
