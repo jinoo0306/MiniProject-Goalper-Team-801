@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GlobalStyle from "./GlobalStyles";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-
-      <Route path="/" element={<MainPage />} />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
     </>
   );
 }

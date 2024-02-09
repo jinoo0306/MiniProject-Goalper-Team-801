@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "pretendar";
+  src: url("./assets/fonts/Pretendar.ttf") format("truetype");
+}
+body {
+  font-family: "pretendar", Arial;
+}
