@@ -1,6 +1,5 @@
 import React from "react";
-
-function MainPage() {
+function Status() {
   const statusCode = 0;
   const statusBackgroundColor = [
     "bg-gray-300",
@@ -22,4 +21,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default Status;
