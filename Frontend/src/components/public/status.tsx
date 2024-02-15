@@ -1,6 +1,5 @@
 import React from "react";
-function Status() {
-  const statusCode = 0;
+function Status(statusCode: number) {
   const statusBackgroundColor = [
     "bg-gray-300",
     "bg-yellow-100",
