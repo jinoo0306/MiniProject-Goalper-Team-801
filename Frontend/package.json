@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/react": "^18.2.53",
     "@types/react-dom": "^18.2.19",
+    "@types/react-lottie": "^1.2.10",
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
@@ -19,6 +20,7 @@
     "vite": "^5.0.12"
   },
   "dependencies": {
+    "lottie-react": "^2.4.0",
     "react": "^18.3.0-canary-2e470a788-20240214",
     "react-dom": "^18.3.0-canary-2e470a788-20240214",
     "react-router-dom": "^6.22.0"
