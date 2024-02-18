@@ -6,6 +6,23 @@
   font-family: "pretendar";
   src: url("./assets/fonts/Pretendar.ttf") format("truetype");
 }
+@font-face {
+  font-family: "bmjua";
+  src: url("./assets/fonts/BMJUA.ttf") format("truetype");
+}
+.font-bmjua {
+  font-family: "bmjua", pretendar, Arial;
+}
+.w-100 {
+  width: 90%;
+}
 body {
   font-family: "pretendar", Arial;
+}
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
 }
