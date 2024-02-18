@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import StartPage from "../src/pages/StartPage";
 import MainPage from "../src/pages/MainPage";
-import SignFormAnimation from "./components/public/SignFormAnimation";
+import LoginPage from "../src/pages/LoginPage";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/main" element={<MainPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );
