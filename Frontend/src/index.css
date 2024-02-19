@@ -23,6 +23,11 @@
 .w-100 {
   width: 90%;
 }
+.colLine::after {
+  content: "";
+  border-left: 1px solid #f3f3f6;
+  height: 100%;
+}
 body {
   font-family: "pretendar", Arial;
 }
