@@ -8,7 +8,7 @@ function SignFormAnimation() {
       animationData={StudyAnimation}
       loop
       autoplay
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "80%", height: "60%" }}
     />
   );
 }
