@@ -4,7 +4,7 @@ import SignFormInputBasic from "../components/public/SignFormInputBasic";
 import SignFormInputPassword from "../components/public/SignFormInputPassword";
 import SignFormAnimation from "../components/public/SignFormAnimation";
 
-function LoginPage() {
+function SignupPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -15,17 +15,8 @@ function LoginPage() {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setPassword(e.target.value);
 
-  const handleLoginClick = () => {
-    // 간단한 클라이언트 측 검증 예시: 아이디와 비밀번호가 "admin"인 경우에만 로그인 성공
-    if (id === "admin" && password === "admin") {
-      navigate("/main"); // 로그인 성공 시 대시보드 페이지로 이동
-    } else {
-      setShowErrorMessage(true); // 로그인 실패 시 오류 메시지 표시
-    }
-  };
-
-  const handleSignUpClick = () => {
-    navigate("/signup");
+  const handleSignupClick = () => {
+    navigate("/login"); // 로그인 성공 시 대시보드 페이지로 이동
   };
 
   return (
@@ -54,18 +45,9 @@ function LoginPage() {
           </div>
           <div
             className="flex items-center justify-center h-28 w-3/4 bg-black rounded-full text-3xl text-white mt-4 cursor-pointer hover:bg-gray-700"
-            onClick={handleLoginClick}
+            onClick={handleSignupClick}
           >
-            Login
-          </div>
-          <div className="flex flex-row justify-center items-center mt-6 text-2xl text-gray-400">
-            <a>Don't have an account?</a>
-            <a
-              className="underline ml-2 cursor-pointer hover:text-gray-700"
-              onClick={handleSignUpClick}
-            >
-              Sign up
-            </a>
+            Signup
           </div>
         </div>
         <div className="border-l border-gray-100 h-screen"></div>
@@ -77,4 +59,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;
