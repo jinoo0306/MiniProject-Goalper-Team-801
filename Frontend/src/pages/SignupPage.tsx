@@ -9,13 +9,17 @@ function SignupPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
-  const [showUsernameErrorMessage, setUsernameShowErrorMessage] =
+  const [showUsernameErrorMessage, setShowUsernameErrorMessage] =
     useState(false);
-  const [showIdErrorMessage, setIdShowErrorMessage] = useState(false);
-  const [showPasswordErrorMessage, setPasswordShowErrorMessage] =
+  const [showIdErrorMessage, setShowIdErrorMessage] = useState(false);
+  const [showPasswordErrorMessage, setShowPasswordErrorMessage] =
     useState(false);
-  const [showPasswordCheckErrorMessage, setPasswordCheckShowErrorMessage] =
+  const [showPasswordCheckErrorMessage, setShowPasswordCheckErrorMessage] =
     useState(false);
+
+  const [recentClick, setRecentClick] = useState(false);
+  const [firstClick, setFirstClick] = useState(false);
+
   const navigate = useNavigate();
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -27,10 +31,75 @@ function SignupPage() {
   const handlePasswordCheckChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setPasswordCheck(e.target.value);
 
-    if
+  const updateStatus = () => {
+    setShowUsernameErrorMessage(false);
+    setShowIdErrorMessage(false);
+    setShowPasswordErrorMessage(false);
+    setShowPasswordCheckErrorMessage(false);
+
+    setTimeout(() =>
+      setShowUsernameErrorMessage(
+        !(
+          username.length >= 2 &&
+          (/[a-zA-Z]/.test(username) || /[ㄱ-ㅎㅏ-ㅣ가-힣]/.test(username))
+        )
+      )
+    );
+
+    setTimeout(() =>
+      setShowIdErrorMessage(
+        !(id.length >= 4 && /[a-zA-Z]/.test(id) && /\d/.test(id))
+      )
+    );
+
+    setTimeout(() =>
+      setShowPasswordErrorMessage(
+        !(
+          password.length >= 8 &&
+          /[a-zA-Z]/.test(password) &&
+          /\d/.test(password) &&
+          /[!@#$%^&*()\-_=+{};:,<.>]/.test(password)
+        )
+      )
+    );
+
+    setTimeout(() =>
+      setShowPasswordCheckErrorMessage(
+        password != passwordCheck ||
+          passwordCheck == "" ||
+          showPasswordErrorMessage
+      )
+    );
+  };
+
+  useEffect(() => {
+    updateStatus();
+  }, [username, id, password, passwordCheck]);
 
   const handleSignupClick = () => {
-    navigate("/login"); // 로그인 성공 시 대시보드 페이지로 이동
+    updateStatus();
+    console.log(
+      `username: ${showUsernameErrorMessage}\nid: ${showIdErrorMessage} \npw: ${showPasswordErrorMessage} \npwCheck: ${showPasswordCheckErrorMessage} \n`
+    );
+    setRecentClick(true);
+    setFirstClick(true);
+    setTimeout(() => setRecentClick(false), 400);
+    if (
+      !(
+        showIdErrorMessage ||
+        showPasswordErrorMessage ||
+        showPasswordCheckErrorMessage ||
+        showUsernameErrorMessage
+      ) &&
+      username &&
+      id &&
+      password &&
+      passwordCheck
+    ) {
+      navigate("/login");
+    } else {
+      console.log("로그인 실패!");
+    }
   };
 
   return (
@@ -38,6 +107,8 @@ function SignupPage() {
       <div className="flex flex-row justify-center items-center h-screen w-screen p-4">
         <div className="flex flex-col h-screen w-1/2 justify-center items-center">
           <a className="text-7xl font-bmjua mb-20">Signup</a>
+
+          {/* username */}
           <SignFormInputBasic
             placeHolder="USERNAME"
             text={username}
@@ -45,31 +116,49 @@ function SignupPage() {
           />
           <div
             className={`flex flex-col w-full justify-center pl-percent-13 text-red-400 text-xl mt-3 mb-5 ${
-              showUsernameErrorMessage ? "shake" : ""
+              showUsernameErrorMessage && recentClick ? "shake" : ""
             }`}
           >
-            {showUsernameErrorMessage ? (
+            {username ? (
+              showUsernameErrorMessage ? (
+                <a>- Invalid username or password.</a>
+              ) : (
+                <a className="text-blue-500">- Conditions match.</a>
+              )
+            ) : firstClick ? (
               <a>- Invalid username or password.</a>
             ) : (
-              <a className="text-gray-500">- 2+ characters including English</a>
+              <a className="text-gray-500">
+                - 2+ characters including English or Korean
+              </a>
             )}
           </div>
+
+          {/* ID */}
           <SignFormInputBasic
             placeHolder="ID"
-            text={username}
+            text={id}
             handleTextChange={handleIdChange}
           />
           <div
             className={`flex flex-col w-full justify-center pl-percent-13 text-red-400 text-xl mt-3 mb-5 ${
-              showUsernameErrorMessage ? "shake" : ""
+              showIdErrorMessage && recentClick ? "shake" : ""
             }`}
           >
-            {showUsernameErrorMessage ? (
+            {id ? (
+              showIdErrorMessage ? (
+                <a>- Invalid username or password.</a>
+              ) : (
+                <a className="text-blue-500">- Conditions match.</a>
+              )
+            ) : firstClick ? (
               <a>- Invalid username or password.</a>
             ) : (
               <a className="text-gray-500">- 4+ characters including English</a>
             )}
           </div>
+
+          {/* password */}
           <SignFormInputPassword
             placeHolder="Password"
             text={password}
@@ -77,10 +166,16 @@ function SignupPage() {
           />
           <div
             className={`flex flex-col w-full justify-center pl-percent-13 text-red-400 text-xl mt-3 mb-5 ${
-              showUsernameErrorMessage ? "shake" : ""
+              showPasswordErrorMessage && recentClick ? "shake" : ""
             }`}
           >
-            {showUsernameErrorMessage ? (
+            {password ? (
+              showPasswordErrorMessage ? (
+                <a>- Invalid username or password.</a>
+              ) : (
+                <a className="text-blue-500">- Conditions match.</a>
+              )
+            ) : firstClick ? (
               <a>- Invalid username or password.</a>
             ) : (
               <a className="text-gray-500">
@@ -88,6 +183,8 @@ function SignupPage() {
               </a>
             )}
           </div>
+
+          {/* password check */}
           <SignFormInputPassword
             placeHolder="Confirm Password"
             text={passwordCheck}
@@ -95,10 +192,16 @@ function SignupPage() {
           />
           <div
             className={`flex flex-col w-full justify-center pl-percent-13 text-red-400 text-xl mt-3 mb-5 ${
-              showUsernameErrorMessage ? "shake" : ""
+              showPasswordCheckErrorMessage && recentClick ? "shake" : ""
             }`}
           >
-            {showUsernameErrorMessage ? (
+            {passwordCheck ? (
+              showPasswordCheckErrorMessage ? (
+                <a>- Invalid username or password.</a>
+              ) : (
+                <a className="text-blue-500">- Conditions match.</a>
+              )
+            ) : firstClick ? (
               <a>- Invalid username or password.</a>
             ) : (
               <a className="text-gray-500">
