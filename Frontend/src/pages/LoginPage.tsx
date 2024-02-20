@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignFormInputBasic from "../components/public/SignFormInputBasic";
 import SignFormInputPassword from "../components/public/SignFormInputPassword";
@@ -16,11 +16,13 @@ function LoginPage() {
     setPassword(e.target.value);
 
   const handleLoginClick = () => {
+    setShowErrorMessage(false);
     // 간단한 클라이언트 측 검증 예시: 아이디와 비밀번호가 "admin"인 경우에만 로그인 성공
     if (id === "admin" && password === "admin") {
       navigate("/main"); // 로그인 성공 시 대시보드 페이지로 이동
     } else {
-      setShowErrorMessage(true); // 로그인 실패 시 오류 메시지 표시
+      //setShowErrorMessage(true); // 로그인 실패 시 오류 메시지 표시
+      setTimeout(() => setShowErrorMessage(true));
     }
   };
 
@@ -45,12 +47,11 @@ function LoginPage() {
             handleTextChange={handlePasswordChange}
           />
           <div
-            className={`flex flex-col pl-28 w-full text-red-400 text-xl mt-4 ${
+            className={`flex flex-col w-full justify-center pl-percent-13 text-red-400 text-xl mt-4 ${
               showErrorMessage ? "shake" : ""
             }`}
           >
-            {!showErrorMessage && <br />}
-            {showErrorMessage && <a>- Invalid username or password.</a>}
+            {showErrorMessage ? <a>- Invalid username or password.</a> : <br />}
           </div>
           <div
             className="flex items-center justify-center h-28 w-3/4 bg-black rounded-full text-3xl text-white mt-4 cursor-pointer hover:bg-gray-700"
