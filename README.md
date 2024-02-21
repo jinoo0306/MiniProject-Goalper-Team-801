@@ -11,7 +11,7 @@
   </tr>
 </table>
 
-
+<br/>
 
 ## 🚀 Features
 
@@ -26,6 +26,8 @@
 3. **Buying Books Page**
    - Discover recommended books to boost your knowledge and skills relevant to your goals.
    - Easily purchase books directly through the platform to further your learning journey and achieve success.
+
+<br/>
 
 ## 🎨 Demo
 
@@ -49,6 +51,8 @@
 5. Conclusion and encouragement for users to start using Goalper to achieve their goals.
 
 ---
+
+<br/>
 
 ## 🛠️ How to Start
 
