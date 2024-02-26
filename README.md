@@ -9,6 +9,7 @@
       Goalper is a platform designed to assist users in achieving their goals by providing various helpful features. The name "Goalper" is derived from combining "goal" and "helper," signifying its purpose to aid users in reaching their objectives.
     </td>
   </tr>
+  
 </table>
 
 <br/>
