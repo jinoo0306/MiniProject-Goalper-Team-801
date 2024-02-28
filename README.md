@@ -3,9 +3,9 @@
 <table style="border-collapse: collapse; border: none;">
   <tr>
     <td style="padding: 0; border: none;">
-      <img src="https://github.com/jinoo0306/Mini-Project-To-Do-List-Team-801/assets/133188752/30661f25-99b0-4f14-9ec3-1ab14c0a149a" alt="Goalper 로고" width="555"/>
+      <img src="https://github.com/jinoo0306/Mini-Project-To-Do-List-Team-801/assets/133188752/30661f25-99b0-4f14-9ec3-1ab14c0a149a" alt="Goalper 로고" width="512"/>
     </td>
-    <td style="padding: 0 0 0 20px; border: none;">
+    <td style="padding: 0 0 0 21px; border: none;">
       Goalper is a platform designed to assist users in achieving their goals by providing various helpful features. The name "Goalper" is derived from combining "goal" and "helper," signifying its purpose to aid users in reaching their objectives.
     </td>
   </tr>
