@@ -18,7 +18,7 @@
 
 1. **To-Do List**
    - Manage your tasks efficiently with a customizable to-do list feature.
-   - Prioritize tasks, set deadlines, and mark them as completed to stay organized and focused on your goals.
+   - Prioritize tasks, set deadlines, and mark them as completed to stay organized and focused on your goal.
 
 2. **Online Bulletin Board**
    - Engage with other users, seek advice, and share your progress on the online bulletin board.
