@@ -52,10 +52,12 @@ function ToDoListPage() {
               onClick={() => changeDate(1)} // 오른쪽 버튼을 눌렀을 때 날짜를 하루 더하기
             />
           </div>
-          <div className="To Do List 컨테이너 mt-8">
-            <div className="flex flex-row items-center w-3/4 text-2xl mt-8 pl-8">
-              asdf
-            </div>
+          <div className="flex flex-row items-center w-3/4 h-32 bg-red-100 text-2xl mt-8 pl-8">
+            asdf
+          </div>
+          <hr className="border-t-2 w-3/4 border-gray-400" />
+          <div className="To Do List 컨테이너 flex flex-col items-center mt-8 w-full h-5/6 overflow-y-auto hideScrollBar">
+            asd
           </div>
         </div>
         <div className="flex flex-col h-full w-1/2 bg-blue-100">

@@ -80,3 +80,8 @@ body {
   white-space: nowrap;
   max-height: 32px; /* 최대 높이 설정 */
 }
+
+.hideScrollBar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
