@@ -7,10 +7,11 @@ function ToDoListPage() {
     <div className="flex flex-col w-screen h-screen">
       <NavigationBar />
       <div className="flex flex-row justify-center items-center h-screen w-screen p-4">
-        <div className="flex flex-col h-full w-1/2 justify-center items-center p-16 bg-red-100">
-          <CRUDButton colorCode={0} placeHolder="Create" />
-          <CRUDButton colorCode={1} placeHolder="Delete" />
-          <CRUDButton colorCode={2} placeHolder="Edit" />
+        <div className="flex flex-col h-full w-1/2 items-center p-4 bg-yellow-100">
+          <div className="flex pr-32 w-full justify-end">
+            <CRUDButton colorCode={0} placeHolder="Add Task" />
+          </div>
+          <div className="mt-4 text-6xl font-bmjua">2024.07.01</div>
         </div>
 
         <div className="flex flex-col h-full w-1/2 bg-blue-100"></div>
