@@ -82,6 +82,7 @@ body {
 }
 
 .hideScrollBar::-webkit-scrollbar {
+  overflow-y: auto;
   width: 0;
   height: 0;
 }
