@@ -10,8 +10,14 @@ function CRUDButton({ colorCode, placeHolder }: CRUDButton) {
     "border-blue-200",
     "border-red-200",
     "border-green-400",
+    "border-gray-300",
   ];
-  const buttonFontColor = ["text-blue-500", "text-red-500", "text-green-700"];
+  const buttonFontColor = [
+    "text-blue-500",
+    "text-red-500",
+    "text-green-700",
+    "text-gray-500",
+  ];
   return (
     <div
       className={`w-36 h-14 rounded-3xl border-4 ${buttonBorderColor[colorCode]} ${buttonFontColor[colorCode]} text-center flex items-center justify-center font-bmjua text-xl bg-white cursor-pointer`}
