@@ -24,7 +24,7 @@ function MainPage() {
             {/* No.1 To Do List*/}
             <hr className="border-t-2 w-3/4 mt-10 border-gray-400" />
             <div className="flex flex-row items-center w-3/4 text-2xl mt-8 pl-8">
-              <a className="w-full text-gray-500">
+              <a className="w-full text-gray-500 gray">
                 Welcome to Today's To Do List!
               </a>
               <ToDoStatus statusCode={0} />
